@@ -1,0 +1,1396 @@
+<html lang="ko" style="height: auto; min-height: 100%;">
+
+<head>
+    <meta charset="UTF-8">
+    <title>생활체육 지도자관리 시스템</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="/js/jquery.ui.monthpicker.js"></script>
+    <script type="text/javascript" src="/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="/js/icheck.min.js"></script>
+    <script type="text/javascript" src="/js/adminlte.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/js/moment.min.js"></script>
+    <script type="text/javascript" src="/js/blockui-master/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="/js/jquery.number.min.js"></script>
+    <script src="/bo/js/jquery-table2excel-master/dist/jquery.table2excel.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.ui.monthpicker.js"></script>
+    <script type="text/javascript" src="/js/highcharts/highcharts.js"></script>
+    <script type="text/javascript" src="/js/highcharts/exporting.js"></script>
+    <script>
+        var cRoot = '';
+        var mode = false;
+
+    </script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/makePCookie.js"></script>
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/css/jquery-ui.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body style="height: auto; min-height: 100%;">
+    <!-- header -->
+    <div id="header" class="main" style="background: rgba(0, 0, 0, 0.4);">
+        <div class="inner">
+            <h1>
+                <a href="/">
+
+                    <img src="/img/logo_off.png" alt="">
+
+
+                </a>
+            </h1>
+            <ul class="gnb">
+
+                <li class="">
+                    <a style="color: rgb(255, 255, 255);">계획 및 실적</a>
+                    <div class="depth" style="display: none;">
+                        <div class="inner">
+                            <dl class="title">
+                                <dt>
+                                    <img src="/img/ico_gnb1.png" alt="">
+                                    <p>계획 및 실적</p>
+                                </dt>
+                            </dl>
+                            <dl>
+                                <dt>계획/실적</dt>
+                                <dd>
+                                    <a href="/record/planReport/makeMonthPlan1.do">
+                                        활동계획
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/record/planReport/makeMonthPlanModify.do">
+                                        계획수정
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/record/planReport/makeDiaryReport.do">
+                                        실적보고
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/record/planReport/inquiryPlanReport.do">
+                                        계획/실적조회
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/record/planReport/dailyReport.do">행정일지
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/record/annual/annualPlan.do">지도교안</a>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>결재</dt>
+                                <dd>
+                                    <a href="/record/document/signingDocBox.do">결재진행
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/record/document/signedDocBox.do">결재완료
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/record/document/returnDocBox.do">반려문서
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/record/document/tempDocBox.do">임시보관</a>
+                                </dd>
+                                <dd>
+                                    <a href="/record/document/signPath.do">결재선</a>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>계획</dt>
+                                <dd>
+                                    <a href="/stat/planBasicInsertStat.do">입력현황</a>
+                                </dd>
+                                <dd>
+                                    <a href="/stat/planBasicDayStat.do">일별현황</a>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>실적</dt>
+                                <dd>
+                                    <a href="/stat/planRsltInsertStat.do">등록현황</a>
+                                </dd>
+                                <dd>
+                                    <a href="/stat/planRsltDayStat.do">일별현황</a>
+                                </dd>
+                                <dd>
+                                    <a href="/stat/planRsltDayStatCompare.do">계획대비실적
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/stat/traineeAgeStatStat.do">지도대상연령분포</a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </li>
+                <li class="">
+                    <a style="color: rgb(255, 255, 255);">온라인 지도</a>
+                    <div class="depth" style="display: none;">
+                        <div class="inner">
+                            <dl class="title">
+                                <dt>
+                                    <img src="/img/ico_gnb1.png" alt="">
+                                    <p>온라인 지도</p>
+                                </dt>
+                            </dl>
+                            <dl>
+                                <dt>온라인 지도 영상</dt>
+
+                                <dd>
+                                    <a href="/onlineRecord/planReport/makeOnlineLecturePlan.do">
+                                        실적
+                                    </a>
+                                </dd>
+
+
+
+                            </dl>
+                            <dl>
+                                <dt>쌍방향</dt>
+                                <dd>
+                                    <a href="/onlineRecord/planReport/makeOnlineLectureTwoWayPlan.do">
+                                        실적
+                                    </a>
+                                </dd>
+                            </dl>
+
+                            <dl>
+                                <dt>통계</dt>
+                                <dd>
+                                    <a href="/onlineRecord/planReport/statOnlineLecture.do">
+                                        영상 통계
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/onlineRecord/planReport/statOnlineLecture.do?statDiv=1">
+                                        쌍방향 통계
+                                    </a>
+                                </dd>
+                            </dl>
+                            <!--
+                            <dl>
+            					
+                            </dl>
+                             -->
+                            <dl></dl>
+                        </div>
+                    </div>
+                </li>
+                <li class="">
+                    <a style="color: rgb(255, 255, 255);">통계</a>
+                    <div class="depth" style="display: none;">
+                        <div class="inner">
+                            <dl class="title">
+                                <dt>
+                                    <img src="/img/ico_gnb2.png" alt="">
+                                    <p>통계</p>
+                                </dt>
+                            </dl>
+                            <dl>
+                                <dt>지도자 통계</dt>
+
+                                <dd>
+                                    <a href="/stat/search_stats/total_stats2.do">
+                                        총괄현황
+                                    </a>
+                                </dd>
+
+                                <dd>
+                                    <a href="/stat/search_stats/position_stats.do">지역별
+                                        배치현황
+                                    </a>
+                                </dd>
+
+                                <dd>
+                                    <a href="/stat/search_stats/stats_leader.do">지도자
+                                        통계
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/stat/search_stats/sport_type_class_member_stat.do?flg=bysport">
+                                        지도종목현황
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/stat/search_stats/license_stats.do">
+                                        자격증취득현황
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/stat/search_stats/sport_type_class_stat.do">
+                                        실수업비교
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/stat/search_stats/timeoff_stats.do">
+                                        휴직,휴가 현황
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/stat/search_stats/classtime_stats.do">
+                                        수업시간
+                                    </a>
+                                </dd>
+
+                                <dd>
+                                    <a href="/holiday/workDay.do">업무 현황</a>
+                                </dd>
+
+                            </dl>
+                            <dl>
+                                <dt>지도자 통계2</dt>
+                                <dd>
+                                    <a href="/stat/search_stats/leader_rslt_stats.do">
+                                        지도인원수
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/stat/search_stats/best_member_year_stat.do">
+                                        순위(연도별)
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/stat/search_stats/best_member_month_stat.do">
+                                        순위(월별)
+                                    </a>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>지도활동 통계</dt>
+                                <dd>
+                                    <a href="/stat/search_stats/plan_report_result_stats.do">
+                                        지역별 현황
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/stat/search_stats/sport_type_class_member_stat.do">
+                                        종목별 현황(수업)
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/stat/search_stats/sport_type_member_stat.do">
+                                        종목별 현황(인원)
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/stat/search_stats/sport_type_month_stat.do">
+                                        종목별 현황(월)
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/stat/search_stats/age_sport_type_stat.do">
+                                        성별, 연령별 현황
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/stat/search_stats/stats_place.do">
+                                        장소(유형별)
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/stat/search_stats/sido_place_stat.do">
+                                        장소(지역별)
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/stat/search_stats/sido_placeRslt_stat.do">
+                                        장소활용현황
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/stat/search_stats/search_place.do">
+                                        장소검색
+                                    </a>
+                                </dd>
+                                <dd>
+                                    <a href="/stat/search_stats/add_place.do">장소등록</a>
+                                </dd>
+                            </dl>
+                            <dl>
+                            </dl>
+                        </div>
+                    </div>
+                </li>
+                <li class="">
+                    <a style="color: rgb(255, 255, 255);">인사관리</a>
+                    <div class="depth" style="display: none;">
+                        <div class="inner">
+
+
+
+                            <dl class="title">
+                                <dt>
+                                    <img src="/img/ico_gnb3.png" alt="">
+                                    <p>인사관리</p>
+                                </dt>
+                            </dl>
+                            <dl>
+                                <dt>인사정보</dt>
+                                <dd>
+                                    <a href="/personnel/card/card.do">인사카드</a>
+                                </dd>
+                                <dd>
+                                    <a href="/personnel/education.do">교육수료</a>
+                                </dd>
+                                <dd>
+                                    <a href="/personnel/penalty.do">징계사항</a>
+                                </dd>
+
+
+                            </dl>
+
+                            <dl>
+                                <dt>증명발급</dt>
+                                <dd>
+                                    <a href="/personnel/certificate/applyIssuance.do">
+                                        증명서 신청
+                                    </a>
+                                </dd>
+
+                                <dd>
+                                    <a href="/personnel/certificate/listIssuance.do">
+                                        증명서 발급대장
+                                    </a>
+                                </dd>
+                            </dl>
+                            <dl></dl>
+
+                            <dl></dl>
+
+                        </div>
+                    </div>
+                </li>
+
+
+                <li class="">
+
+
+
+                    <a href="/lms/main" target="_blank" style="color: rgb(255, 255, 255);">온라인교육</a>
+
+
+
+
+
+                </li>
+
+                <li>
+                    <a style="color: rgb(255, 255, 255);">게시판</a>
+                    <div class="depth">
+                        <div class="inner">
+                            <dl class="title">
+                                <dt>
+                                    <img src="/img/ico_gnb4.png" alt="">
+                                    <p>게시판</p>
+                                </dt>
+                            </dl>
+                            <dl>
+                                <dt>게시판</dt>
+                                <dd>
+                                    <a href="/community/noticeList.do">공지사항</a>
+                                </dd>
+                                <dd>
+                                    <a href="/community/pdsList.do">자료실</a>
+                                </dd>
+                                <dd>
+                                    <a href="/community/troubleList.do">오류/기타문의</a>
+                                </dd>
+                            </dl>
+                            <dl>
+                            </dl>
+                            <dl>
+                            </dl>
+                            <dl>
+                            </dl>
+                        </div>
+                    </div>
+                </li>
+
+
+
+
+
+
+            </ul>
+            <ul class="util">
+
+                <li>
+                    <a href="/mypage/modify.do" style="color: rgb(255, 255, 255);">마이페이지</a>
+                </li>
+                <li>
+                    <a href="/logout.do" style="color: rgb(255, 255, 255);">로그아웃</a>
+                </li>
+                <!-- <li><a href="#">개인정보표시</a></li> -->
+            </ul>
+        </div>
+    </div>
+    <style>
+        .latest {
+            overflow: hidden;
+        }
+
+        #calDate {
+            display: inline;
+            width: 21%;
+            margin: -2%;
+            background-color: #2b60cb;
+            border-color: #2b60cb;
+            color: white;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content/Box */
+        .modal-content1 {
+            background-color: #fefefe;
+            margin: 10% auto;
+            /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 30%;
+            /* Could be more or less, depending on screen size */
+        }
+
+        .figures2 p {
+            margin: 0;
+            padding: 10px 0;
+        }
+
+        .figures2 p:nth-child(-n+2) {
+            border-bottom: #8da5d3 solid 1px;
+        }
+
+        .figures2 p:nth-child(odd) {
+            border-right: #8da5d3 solid 1px;
+        }
+
+        .figures2:after {
+            display: none !important;
+        }
+
+        .figures2:before {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript"
+        src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=54o1l946v5"></script>
+    <script>
+        var mSeq = '205866';
+        var mSidoCd = '001';
+        var mSigunguCd = '00';
+        var mGroup = '050';
+        // Test 20220128
+        $(function () {
+            // 2020년 사용자 만족도 조사확인 강제 이동용 카운트
+
+
+
+
+
+
+            /* $('.mysite .tab_content').eq(0).show();
+             $('.mysite .tab li').click(function () {
+                 $(this).addClass('active').siblings().removeClass('active');
+                 $('.mysite .tab_content').eq($(this).index())
+                     .show().siblings('.mysite .tab_content')
+                     .hide()
+             })
+     
+             $('.latest .tab_content').eq(0).show();
+             $('.latest .tab li:not(.off)').click(function () {
+                 $(this).addClass('active').siblings().removeClass('active');
+                 $('.latest .tab_content').eq($(this).index())
+                     .show().siblings('.latest .tab_content')
+                     .hide()
+             })
+     
+             $('.search .tab_content').eq(0).show();
+             $('.search .tab li').click(function () {
+                 $(this).addClass('active').siblings().removeClass('active');
+                 $('.search .tab_content').eq($(this).index())
+                     .show().siblings('.search .tab_content')
+                     .hide()
+             })
+             $("#calDate").datepicker("option", "dateFormat", "yy-mm-dd");
+             $("#calDate").datepicker("setDate", new Date());
+             $("#calDate").change(function () {
+                 if (mGroup == '050') {
+                     getMapList1();
+                 } else {
+                     getMapList2();
+                 }
+             });
+             selectTpsnMember(mSidoCd, mSigunguCd, '10', '김남훈');
+             $('.mysite .tab_content').eq(0).show();
+             $('.mysite .tab li').click(function () {
+                 $(this).addClass('active').siblings().removeClass('active');
+                 $('.mysite .tab_content').eq($(this).index())
+                     .show().siblings('.mysite .tab_content')
+                     .hide();
+             });
+     
+             $('.latest .tab_content').eq(0).show();
+             $('.latest .tab li:not(.off)').click(function () {
+                 $(this).addClass('active').siblings().removeClass('active');
+                 $('.latest .tab_content').eq($(this).index())
+                     .show().siblings('.latest .tab_content')
+                     .hide();
+             });
+     
+             $('.search .tab_content').eq(0).show();
+             $('.search .tab li').click(function () {
+                 $(this).addClass('active').siblings().removeClass('active');
+                 $('.search .tab_content').eq($(this).index())
+                     .show().siblings('.search .tab_content')
+                     .hide();
+             });*/
+
+            /* modal controll */
+            /* close */
+            $(".close, input[name='ccc']").click(function () {
+                var id = $(this).closest('.modal').attr('id');
+                var modal = $('#' + id);
+                var cookieId = modal.find('input[name="ccc"]').attr('id');
+                if ($('#' + cookieId).is(':checked')) {
+                    var key = 'LayerPopupYn'
+                    var num = id.substring(id.length - 1, id.length) * 1;
+                    if (num > 1) {
+                        key += 'Add' + num;
+                    }
+                    $.cookie(key, 'N', { expires: 1 });
+                }
+                modal.hide();
+            })
+
+            viewModal();
+
+            /*displaySelectSido("sidoCd,#sidoCd2,#sidoCd3", null, null);
+            $("#sidoCd").val('001').attr("selected", "selected");
+            $("#sidoCd2").val('001').attr("selected", "selected");
+            $("#sidoCd3").val('001').attr("selected", "selected");
+            if ('001' != '') {
+                $("#sigunguCd").html('');
+                $("#sigunguCd2").html('');
+                $("#sigunguCd3").html('');
+                displaySelectSigungu1('sigunguCd,#sigunguCd2,#sigunguCd3', '001', null, null);
+                $("#sigunguCd").val('00').attr("selected", "selected");
+                $("#sigunguCd2").val('00').attr("selected", "selected");
+                $("#sigunguCd3").val('00').attr("selected", "selected");
+            } else {
+                $("#sigunguCd").html("<option value=''>시군구 전체</option>");
+                $("#sigunguCd2").html("<option value=''>시군구 전체</option>");
+                $("#sigunguCd3").html("<option value=''>시군구 전체</option>");
+            }
+    
+            displaySelectLeaderDiv("leaderDiv2", null, null);
+    
+            if (mGroup === '050') {
+                getMapList1();
+            } else {
+                getMapList2();
+            }
+            getCommonCode("placeDiv", null, null, "24", "장소구분");
+    
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    displayMap('현위치', position.coords.longitude, position.coords.latitude);
+                });
+            } else {
+                displayMap('대한체육회', 127.1287316, 37.5159861);
+            }*/
+
+
+        });
+
+        function viewModal() {
+            var cookies = $.cookie();
+            var keys = Object.keys(cookies);
+            var baseTargetCookieName = 'LayerPopupYn'
+            $('.modal').show();
+            for (var keyIdx in keys) {
+                var key = keys[keyIdx];
+                if (key.indexOf(baseTargetCookieName) === 0) {
+                    var value = cookies[key];
+                    var select = key.replace(baseTargetCookieName, '').substr(-1);
+                    if (value === 'N') $('#myModal' + select).hide();
+                }
+            }
+        }
+
+        /*function getMapList1() {
+            $.ajax({
+                url: "/index/getList1.do",
+                data: {
+                    "memberSeq": mSeq,
+                    "planDt": $("#calDate").val().replace(/-/gi, "")
+                },
+                dataType: "json",
+                type: "post",
+                success: function (data) {
+                    // console.log(data);
+                    var result = data.result;
+                    var html = '';
+                    if (result.length === 0) {
+                        html = '<dl><dd>조회건수가 없습니다.</dd></dl>';
+                        html += '<dl><dt></dt><dd></dd></dl>';
+                    } else {
+                        for (var i = 0; i < result.length; i++) {
+                            html += '<dl><dt>'
+                                + (result[i].totalStartHm || "").substring(0, 2) + ' : ' + (result[i].totalStartHm || "").substring(2)
+                                + '</dt><dd><strong>' + result[i].placeNm
+                                + '</strong>명</dd></dl>';
+                        }
+                        if (result.length === 1) {
+                            html += '<dl><dt></dt><dd></dd></dl>';
+                        }
+                    }
+                    $("#dataSchedule").html(html);
+                },
+                error: function () {
+    
+                }
+            });
+        }*/
+
+        /*function getMapList2() {
+            var planDt = $("#calDate").val();
+            if (!!planDt) planDt = planDt.replace(/-/gi, "");
+    
+            $.ajax({
+                url: "/index/getList2.do",
+                data: {
+                    "memberSeq": '205866',
+                    "planDt": planDt,
+                    "sidoCd": '001',
+                    "sigunguCd": '00'
+                },
+                dataType: "json",
+                type: "post",
+                success: function (data) {
+                    // console.log(data);
+                    var result = data.result;
+                    var html = '';
+                    if (result.length === 0) {
+                        html = '<dl><dd>조회건수가 없습니다.</dd></dl>';
+                        html += '<dl><dt></dt><dd></dd></dl>';
+                    } else {
+                        for (var i = 0; i < result.length; i++) {
+                            html += '<dl><dt>' + result[i].leaderDivNm
+                                + '</dt><dd><strong>' + result[i].memberCnt + '</strong>명</dd><dd><strong>'
+                                + result[i].planCnt + '</strong>명</dd></dl>';
+                        }
+                        if (result.length === 1) {
+                            html += '<dl><dt></dt><dd></dd></dl>';
+                        }
+                    }
+                    $("#dataSchedule").html(html);
+                },
+                error: function () {
+    
+                }
+            });
+        }*/
+
+        /*function mainSearch(div) {
+            if (div == 'place') {
+                if ($("#sigunguCd").val() == '' && $("#placeDiv").val() == '' && $("#placeNm").val() == '') {
+                    alert('상세지역, 장소구분, 장소명칭 중 1가지 이상 선택(입력) 후 \n\n 검색버튼을 누르세요.');
+                    return false;
+                }
+                $.ajax({
+                    url: "/index/selectTrcdPlace.do",
+                    data: {
+                        "sidoCd": $("#sidoCd").val(),
+                        "sigunguCd": $("#sigunguCd").val(),
+                        "placeDiv": $("#placeDiv").val(),
+                        "placeNm": $("#placeNm").val()
+                    },
+                    dataType: "json",
+                    type: "post",
+                    success: function (data) {
+                        console.log(data);
+                        var result = data.result;
+                        var html = '';
+                        for (var i = 0; i < result.length; i++) {
+                            html += '<li onclick="placeLoadMap(\''
+                                + result[i].placeNm + '\',\''
+                                + result[i].xCoord + '\',\''
+                                + result[i].yCoord + '\',\''
+                                + result[i].placeSeq + '\')">';
+                            html += '<span class="number">' + result[i].rn + '</span>';
+                            html += '<strong>[' + result[i].placeNm + ']</strong>';
+                            html += '<span class="address" id="place_' + result[i].placeSeq + '">' + result[i].addr1 + '</span>';
+                            html += '</li>';
+                        }
+                        $("#placeResult").html(html);
+                    },
+                    error: function () {
+    
+                    }
+                });
+            } else if (div == 'leaderDiv') {
+                if ($("#sigunguCd2").val() == '' && $("#memberNm2").val() == '' && $("#leaderDiv2").val() == '') {
+                    alert('상세지역, 지도자 구분, 지도자성명  중 1가지 이상 선택(입력) 후 \n\n 검색버튼을 누르세요.');
+                    return false;
+                }
+                selectTpsnMember($("#sidoCd2").val(), $("#sigunguCd2").val(), $("#memberNm2").val(), $("#leaderDiv2").val());
+            }
+        }
+    
+        var profile;
+    
+        function profile1(i) {
+            $("#memberNm21").html(profile[i].memberNm);
+            $("#memberAge21").html(profile[i].memberAge + "세");
+            $("#lastSchool21").html(profile[i].lastSchool + " - " + profile[i].lastSchoolGnm);
+            $("#sigunguFormalNm21").html(profile[i].sigunguFormalNm);
+            $("#leaderDivNm21").html(profile[i].leaderDivNm);
+            $("#curSigunguSdt21").html(profile[i].curSigunguSdt.substring(0, 4) + "-" + profile[i].curSigunguSdt.substring(4, 6) + "-" + profile[i].curSigunguSdt.substring(6, 8));
+        }
+    
+        function selectTpsnMember(sidoCd, sigunguCd, memberNm, leaderDiv) {
+            $
+                .ajax({
+                    url: "/index/selectTpsnMember.do",
+                    data: {
+                        "sidoCd": sidoCd,
+                        "sigunguCd": sigunguCd,
+                        "memberNm": memberNm,
+                        "leaderDiv": leaderDiv
+                    },
+                    dataType: "json",
+                    type: "post",
+                    success: function (data) {
+                        // console.log('search');
+                        // console.log(data);
+                        profile = data.result;
+                        var html = '';
+                        if (profile.length == 0) {
+                            html = '조회결과가 없습니다.';
+                        } else {
+                            for (var i = 0; i < profile.length; i++) {
+                                html += '<li onclick="profile1(' + i + ')"  style="cursor:pointer" >';
+                                html += '<span class="number">' + (i + 1) + '</span>';
+                                html += '<strong>' + profile[i].memberNm + '</strong>';
+                                html += '<span class="address">' + profile[i].sigunguFormalNm + '</span>';
+                                html += '</li>';
+                            }
+                            $("#memberNm21").html(profile[0].memberNm);
+                            $("#memberAge21").html(profile[0].memberAge + "세");
+                            $("#lastSchool21").html(profile[0].lastSchool + " - " + profile[0].lastSchoolGnm);
+                            $("#sigunguFormalNm21").html(profile[0].sigunguFormalNm);
+                            $("#leaderDivNm21").html(profile[0].leaderDivNm);
+                            $("#curSigunguSdt21").html(profile[0].curSigunguSdt.substring(0, 4) + "-" + profile[0].curSigunguSdt.substring(4, 6) + "-" + profile[0].curSigunguSdt.substring(6, 8));
+                        }
+                        $("#teachers").html(html);
+                    },
+                    error: function () {
+    
+                    }
+                })
+        }
+    
+        function displayMap(place_nm, x_coord, y_coord) {
+            var latlng = new naver.maps.LatLng(y_coord, x_coord);
+            var map = new naver.maps.Map('placeMap', {
+                center: latlng,
+                zoom: 10
+            });
+    
+            var marker = new naver.maps.Marker({
+                map: map,
+                position: latlng
+            });
+    
+            var tooltip_str = ['<p>' + place_nm + '</p>'].join('');
+    
+            var infowindow = new naver.maps.InfoWindow({content: tooltip_str});
+    
+            naver.maps.Event.addListener(marker, "click", function (e) {
+                if (infowindow.getMap()) {
+                    infowindow.close();
+                } else {
+                    infowindow.open(map, marker);
+                }
+            });
+            infowindow.open(map, marker);
+        }
+    
+        function placeLoadMap(placeNm, xCoord, yCoord, placeSeq) {
+            $('.address').css('font-weight', '');
+            $('#place_' + placeSeq).css('font-weight', 'bold');
+            displayMap(placeNm, xCoord, yCoord);
+        }*/
+
+        /* jQuery(document).ready(function() {
+            $('#myModal').show();
+        });
+        //팝업 Close 기능
+        function close_pop(flag) {
+         $('#myModal).hide();
+        }; */
+
+    </script>
+    <!-- content -->
+    <div id="content" class="main">
+        <div class="inner cl">
+            <div class="column1">
+                <div class="welcome">
+                    <p class="subline">
+                        <img src="img/welcome_subline.png" alt="스포츠 참여 범국민 캠페인 스포츠 7330">
+                    </p>
+                    <p class="mainline">
+                        <img src="img/welcome_mainline.png" alt="생활체육지도자통합관리 시스템에 오신것을 환영합니다.">
+                    </p>
+                </div>
+                <div class="search">
+                    <ul class="tabs tab">
+                        <li class="active">
+                            <span>지도장소검색</span>
+                        </li>
+                        <li>
+                            <span>지도자 찾기</span>
+                        </li>
+                        <!-- <li><span>통계자료</span></li> -->
+                    </ul>
+
+                    <div class="tab_content">
+                        <div class="form">
+                            <select id="sidoCd" name="sidoCd"
+                                onchange="displaySelectSigungu1('sigunguCd',this.value,null,null);">
+                            </select>
+                            <select id="sigunguCd" name="sigunguCd">
+                                <option>시군구 전체</option>
+                            </select>
+                            <select id="placeDiv" name="placeDiv">
+                            </select>
+                            <p>
+                                <input type="text" id="placeNm" name="placeNm">
+                                <button type="button" onclick="mainSearch('place');">
+                                    <img src="img/icon_search.png" alt="검색">
+                                </button>
+                            </p>
+                        </div>
+                        <div class="map" id="placeMap">지도</div>
+                        <ol id="placeResult">
+                        </ol>
+                    </div>
+
+
+                    <div class="tab_content">
+                        <div class="form">
+                            <select id="sidoCd2" name="sidoCd"
+                                onchange="displaySelectSigungu1('sigunguCd2',this.value,null,null);">
+                            </select>
+                            <select id="sigunguCd2" name="sigunguCd">
+                                <option>시군구 전체</option>
+                            </select>
+                            <select id="leaderDiv2" name="leaderDiv">
+                            </select>
+                            <p>
+                                <input type="text" id="memberNm2" name="memberNm">
+                                <button type="button">
+                                    <img src="img/icon_search.png" alt="검색" onclick="mainSearch('leaderDiv');">
+                                </button>
+                            </p>
+                        </div>
+                        <div class="profile">
+                            <div>
+                                <div>
+                                    <p id="memberNm21">-</p>
+                                    <span id="memberAge21">-</span>
+                                </div>
+                            </div>
+                            <ul>
+                                <li id="lastSchool21">-</li>
+                                <li id="sigunguFormalNm21">-</li>
+                                <li id="leaderDivNm21">-</li>
+                                <li>입사 :
+                                    <span id="curSigunguSdt21"></span>
+                                </li>
+                            </ul>
+                        </div>
+                        <ol id="teachers">
+                        </ol>
+                    </div>
+                    <div class="tab_content">
+                        <div class="form" id="teachSearchForm">
+                            <select id="sidoCd3" name="sidoCd"
+                                onchange="displaySelectSigungu1('sigunguCd2',this.value,null,null);">
+                            </select>
+                            <select id="sigunguCd3" name="sigunguCd">
+                                <option>시군구 전체</option>
+                            </select>
+                            <select id="leaderDiv3" name="leaderDiv">
+                                <option valeu="">지도자구분 전체</option>
+                                <option valeu="10">일반지도자</option>
+                                <option valeu="20">어르신지도자</option>
+                                <option valeu="30">유소년지도자</option>
+                            </select>
+                            <p>
+                                <input type="text" id="memberNm3">
+                                <button type="button" onclick="mainSearch('teachSearch');">
+                                    <img src="img/icon_search.png" alt="검색">
+                                </button>
+                            </p>
+                        </div>
+                        <div class="statistics">
+                            <ul>
+                                <li>
+                                    <span>일반지도자</span>
+                                    <div class="progressbar">
+                                        <div style="width: 50%">
+                                            <span>50</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>어르신 전담</span>
+                                    <div class="progressbar">
+                                        <div style="width: 75%">
+                                            <span>75</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>유소년 전담</span>
+                                    <div class="progressbar">
+                                        <div style="width: 6%">
+                                            <span>6</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="major_menus">
+                    <ul>
+                        <li>
+                            <a href="https://www.sportal.or.kr/event/domEventList.do" target="_blank">대회/행사
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.sportal.or.kr/info/webzineList.do" target="_blank">체육소식
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.sportal.or.kr" target="_blank">체육포털</a>
+                        </li>
+                        <li>
+                            <a href="https://www.sportal.or.kr/library/facilityList.do" target="_blank">체육시설</a>
+                        </li>
+                        <!--li><a href="">활동사진</a></li-->
+                    </ul>
+                </div>
+            </div>
+            <div class="column2" style="display: flex;flex-direction: column">
+                <div class="mysite">
+                    <ul class="tabs tab">
+                        <li class="active">
+                            <span>대한체육회</span>
+                        </li>
+                        <li>
+                            <span>나의 강의실</span>
+                        </li>
+                    </ul>
+                    <div class="content tab_content">
+                        <p class="avatar">
+                            <a href="">
+                                <img src="img/icon_avatar.png" alt="아바타">
+                            </a>
+                            <a href="" class="settings"></a>
+                        </p>
+                        <div class="my_msgs">
+                            <div class="welcome_msg">
+                                <span class="username"><strong>김남훈</strong>님</span>
+                                환영합니다.
+                            </div>
+                            <div class="received_msgs">
+                                <span>받은 쪽지</span>
+                                <span style="cursor: pointer;" onclick="location.href='/mypage/paper.do'"><em></em>
+                                    통</span>
+                            </div>
+                        </div>
+                        <p class="buttons">
+                            <a href="/logout.do" class="btn_logout">로그아웃</a>
+                            <a href="/mypage/paperRegFrm.do" class="btn_send_msg">쪽지 전송</a>
+                        </p>
+                    </div>
+                    <div class="myroom tab_content">
+
+                        <ul>
+                            <li>
+
+
+                                <a href="/lms/classroom/studying" target="_blank">학습중인 과정</a>
+
+
+
+
+                            </li>
+                            <li>
+
+
+                                <a href="/lms/classroom/regist" target="_blank">대기중인 과정</a>
+
+
+
+
+                            </li>
+                            <li>
+
+
+                                <a href="/lms/classroom/complete" target="_blank">학습완료 과정</a>
+
+
+
+
+                            </li>
+                            <li>
+
+
+                                <a href="/lms/support/notice" target="_blank">공지사항</a>
+
+
+
+
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="schedule" style="margin-bottom: 50px">
+                    <p class="title">지도일정</p>
+                    <p class="date_calen">
+                        <!-- <button type="button"><img src="img/datearrow.png" alt=""></button> -->
+                        <input id="calDate" class="datepicker hasDatepicker" type="button">
+                        <!-- <button type="button"><img src="img/datearrow1.png" alt=""></button> -->
+                        <input type="hidden" id="datepicker" class="hasDatepicker">
+
+                        <!-- <a href=""><img src="img/icon_calendar.png" alt="달력"></a> -->
+                    </p>
+                    <div class="figures" id="dataSchedule"></div>
+                    <div class="figures2">
+                        <p>
+                            <a href="/record/document/signingDocBox.do"><strong>결재 대기</strong></a>
+                            <span></span>
+                        </p>
+                        <p>
+                            <strong>체육회 공지</strong>
+                            <span></span>
+                        </p>
+                        <p>
+                            <a href="/record/document/signingDocBox.do"><strong>결재 진행</strong></a>
+                            <span></span>
+                        </p>
+                        <p>
+                            <strong>시도 공지</strong>
+                            <span></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="latest">
+                    <ul class="tabs tab">
+                        <li class="active">
+                            <span>계획 승인</span>
+                        </li>
+                        <li>
+                            <span>실적 결재</span>
+                        </li>
+                        <!-- <li><span>설문조사</span></li> -->
+
+
+
+
+
+                        <li class="off">
+
+
+
+
+                            <a href="/lms/main?id=developer&amp;memberno=205866" target="_blank">온라인교육</a>
+
+
+
+                        </li>
+
+                        <li style="background: #CCCCCC;">
+                            <a href="/community/index.do?type=11" target="_self">
+                                <span style="color: #00alf2;">
+                                    오류문의
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ol class="content tab_content">
+
+                        <li>
+                            <span>결과가 없습니다.</span>
+                        </li>
+
+
+                    </ol>
+                    <ol class="content tab_content">
+
+                        <li>
+                            <span>결과가 없습니다.</span>
+                        </li>
+
+
+                    </ol>
+                    <ol class="content tab_content full">
+                        <li>
+                            <a href="">자동차 관련조사</a>
+                        </li>
+                        <li>
+                            <a href="">일상생활 관한조사</a>
+                        </li>
+                        <li>
+                            <a href="">만족도 조사</a>
+                        </li>
+                        <li>
+                            <a href="">소비자 관련조사</a>
+                        </li>
+                        <li>
+                            <a href="">일반인 대상조사</a>
+                        </li>
+                    </ol>
+                    <ol class="tab_content">
+
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div id="myModal4" class="modal main"
+        style="padding-top: 0px; left: 0; top: 40px; z-index: 9998; display: none; width: 100%;">
+        <div class="modal-content" id="modaldrag4"
+            style="width: 600px; margin: 0 auto; min-width: auto; border-color: #12c0d9;">
+            <div class="modal-header1" style="padding: 15px 0; background: #12c0d9;">
+                <span class="close" id="close4">닫기</span>
+                <h2>안내</h2>
+            </div>
+            <div class="modal-body" style="background: #fffef5;">
+
+
+
+                <script>
+                    function fn_downfile(uuid) {
+                        location.href = "/community/fileDownload.do?uuid=" + uuid;
+                    }
+                </script>
+                <p style="font-size:18px;"> ※ 생활체육지도자 통합관리시스템 사용자 매뉴얼 V1.0 공개
+                    <a href="/community/communityDetail.do?type=5&amp;seq=519" target="_self"><span style="color:red;">
+                            [바로가기]</span></a>
+                </p>
+
+
+
+
+
+                <div class="modify220106">
+                    <div>
+                        <div class="left">
+                            <strong>오류/기술문의 접수</strong>
+                        </div>
+                        <div class="right">
+                            <p><a href="/community/index.do?type=11" style="color: blue">[기타/오류문의 게시판]</a><em
+                                    class="wh">에 남겨 주시기 바랍니다.</em></p>
+                            <p> 가급적 <span class="color_red">게시판 사용</span>을 권해드립니다.<br>
+                                팝업창과 공지사항을 수시로 확인해 주시기 바랍니다.)</p>
+                        </div>
+                    </div>
+                    <div>
+                        <strong><span class="color_red"> ※ 전화 상담 가능 시간 : 평일(오전 9:30~12:30, 13:30~18:30) ※
+                            </span></strong>
+                    </div>
+                    <div>
+                        <div class="left">
+                            <strong>기술문의 전화</strong>
+                        </div>
+                        <div class="right">
+                            <p class="sr"><em>유지보수 업체 (주)상록에스</em></p>
+                            <p class="tel"><em>070-4457-7104</em><em>070-4457-7108</em></p>
+                            <p class="mt-15">
+                                <span class="txt">온라인교육 및 기술 상담 문의 접수</span>
+                                <span class="info">02-408-4584</span>
+                            </p>
+                            <p class="mt-4">
+                                <span class="txt">이메일 접수</span>
+                                <span class="info mr-20">slims@srmm.kr</span>
+                                <span class="txt">원격지원</span>
+                                <span class="info"><a href="http://367.co.kr"
+                                        target="_blank">http://367.co.kr</a></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="font-size:15px;line-height:1.6; margin-top:5px; color: blue; text-align: left;">* 정책, 운영, 관리
+                    상의 문의는 해당 시도/시군구 체육회에 문의하여 주시기 바랍니다.</p>
+
+
+            </div>
+            <div class="modal-footer">
+                <input type="checkbox" id="c5" name="ccc">
+                <label for="c5">
+                    <span></span>
+                    오늘 하루 보지 않기
+                </label>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <div id="myModal10" class="modal main"
+        style="padding-top: 0px; left: 800px; top: 40px; background: none; z-index: 9998; display: none;">
+        <div class="modal-content" id="modaldrag10"
+            style="width: 600px; margin: 0; min-width: auto; border-color: #12c0d9;">
+            <div class="modal-header1" style="padding: 15px 0; background: #12c0d9;">
+                <span class="close" id="close10">닫기</span>
+                <h2>안내</h2>
+            </div>
+            <div class="modal-body" style="background: #fffef5;">
+
+
+                <script>
+                    function fn_downfile(uuid) {
+                        location.href = "/community/fileDownload.do?uuid=" + uuid;
+                    }
+                </script>
+
+                <div class="modify220106">
+                    <div class="contents-title" style="border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-image: linear-gradient(to right, #142B45 0%, #4B87CB 100%);
+border-image-slice: 1; margin-bottom: 10px;">
+                        <p
+                            style="font-size:18px; height: 30px; font-family: 'HYHeadLine'; margin-top: 5px;text-align:center;">
+                            ※ 생활체육지도자 통합관리시스템 트래픽 안내 </p>
+                    </div>
+
+                    <div class="left">
+                        <p style="font-size: 16px; font-weight: bold; color:#000;text-align:left;">1) 트래픽 원인 </p>
+                        <p style="font-size: 16px; color:#000;text-align:left;">&nbsp;&nbsp;(1)동시접속 사용자가 매우 많음 </p>
+                        <p style="font-size: 16px; color:#000;text-align:left;">&nbsp;&nbsp;&nbsp;&nbsp;(서버 허용치를 계속 초과함,
+                            특히 출근직후나 퇴근 전 시간대에 집중됨-다른 시간대 이용 권장) </p>
+
+
+                        <p style="font-size: 16px; font-weight: bold; color:#000;text-align:left;">2) 단계적 해결 방안 :</p>
+                        <p style="font-size: 16px; color:#000;text-align:left;">&nbsp;&nbsp;(1)이미지 업로드 시 용량 축소</p>
+                        <p style="font-size: 16px; color:#000;text-align:left;">&nbsp;&nbsp;(사용자 PC에서 자동으로 줄여서 업로드하도록
+                            적용함) </p>
+                        <p style="font-size: 16px; color:#000;text-align:left;">&nbsp;&nbsp;(2)서버 성능 개선을 위한 점검 및 홈페이지
+                            경량화 작업 중이라 화면이 평소와 다르게 보일 수 있습니다. </p>
+                        <p style="font-size: 16px; color:#000;text-align:left;">&nbsp;&nbsp;&nbsp;&nbsp;(사용에는 문제가 없으니 착오
+                            없으시기 바랍니다. 속도가 정상화되면 이전 화면으로 복구해 드릴 예정입니다.)
+                            <a href="community/communityDetail.do?seq=1826" target="_self"><span style="color:red;">
+                                    [바로가기]</span></a>
+                        </p>
+                    </div>
+
+                    <div class="left">
+                        <p style="font-size: 16px; font-weight: bold; color:#000;text-align:left;"> ☞게시판 이용 권장 및 고객응대
+                            근로자 보호 안내
+                            <a href="community/communityDetail.do?seq=1835" target="_self"><span style="color:red;">
+                                    [바로가기]</span></a>
+                        </p>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <input type="checkbox" id="c3" name="ccc">
+                <label for="c3">
+                    <span></span>
+                    오늘 하루 보지 않기
+                </label>
+            </div>
+        </div>
+    </div> -->
+
+
+
+
+
+
+
+
+
+
+    <!-- footer -->
+    <div id="footer">
+        <div class="inner">
+            <div class="top">
+                <a href="#"><img src="/img/footerlogo.png" alt=""></a>
+                <ul>
+                    <li><a href="https://www.sports.or.kr/home/010902/0000/main.do" target="_blank">개인정보처리방침</a></li>
+                </ul>
+                <ul>
+                    <li>
+                        <font color="white"><a href="http://helpu.kr/srmm/" target="_blank">원격지원요청</a></font>
+                    </li>
+                </ul>
+            </div>
+            <div class="btm">
+                <ul>
+                    <li>기술문의전화 : 070-4457-7104</li>
+                    <li>정책 및 행정 문의 : 소속 체육회</li>
+                </ul>
+                <address>Copyright© 2016 Korean Sport Olympic Committee. all rights reserved.</address>
+            </div>
+        </div>
+    </div>
+
+    <div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+    </div>
+</body>
+
+</html>
