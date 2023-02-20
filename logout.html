@@ -1,8 +1,3 @@
-
-
-
-
-
 <!DOCTYPE html>
 <html>
 
@@ -110,8 +105,8 @@
                         }
                     }
                 }).fail(function (jqXHR, textStatus, errorThrown) {
-                alert("통신에 문제가 발생했습니다.\n잠시후에 다시 시도해 주십시오.");
-            });
+                    alert("통신에 문제가 발생했습니다.\n잠시후에 다시 시도해 주십시오.");
+                });
         }
 
         function searchId() {
@@ -147,7 +142,7 @@
         function fnPopup(idPw) {
             $.ajax({
                 url: "/idFind/find.do?mode=idFind",
-                data: {"kind": idPw},
+                data: { "kind": idPw },
                 dataType: "json",
                 type: "post",
                 success: function (data) {
@@ -237,7 +232,7 @@
             var check = true;
             $.ajax({
                 url: "/checkMemberIdCnt2.do",
-                data: {"memberId": $('#changeId').val()},
+                data: { "memberId": $('#changeId').val() },
                 dataType: "json",
                 type: "POST",
                 async: false,
@@ -318,202 +313,291 @@
 </head>
 
 <body class="login-page">
-<div class="login-box">
-    <div class="login-logo">
-        <b>SLIMS</b>
-    </div>
-    <div class="login-box-body">
-        <p class="login-box-msg">생활체육지도자 통합관리시스템</p>
 
-        <form name="frm" id="frm" method="post">
-            <input type="hidden" name="mode" value="proc"/>
-            <div class="form-group has-feedback">
-                <input type="text" name="memberId" id="memberId" style="ime-mode:inactive;" class="form-control" placeholder="Enter Id">
-                
-            </div>
-            <div class="form-group has-feedback">
-                <input type="password" name="memberPw" id="memberPw" onkeypress='if(event.keyCode == 13) goSubmit();' class="form-control" placeholder="Enter Password">
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-            </div>
-            <div class="row">
-                <div class="col-xs-8">
-                    <div class="checkbox icheck">
-                        <!-- <label>
+    <div class="login-box">
+        <div class="login-logo">
+            <b>SLIMS</b>
+        </div>
+        <div class="login-box-body">
+            <p class="login-box-msg">생활체육지도자 통합관리시스템</p>
+
+            <form name="frm" id="frm" method="post">
+                <input type="hidden" name="mode" value="proc" />
+                <div class="form-group has-feedback">
+                    <input type="text" name="memberId" id="memberId" style="ime-mode:inactive;" class="form-control"
+                        placeholder="Enter Id">
+
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="password" name="memberPw" id="memberPw"
+                        onkeypress='if(event.keyCode == 13) goSubmit();' class="form-control"
+                        placeholder="Enter Password">
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        <div class="checkbox icheck">
+                            <!-- <label>
                             <input type="checkbox"> 아이디 저장
                         </label> -->
+                        </div>
                     </div>
                 </div>
+            </form>
+
+            <div class="text-center mt10">
+                <button onclick="goSubmit();" class="btn btn-block btn-flat btn-login">Login</button>
             </div>
-        </form>
-
-        <div class="text-center mt10">
-            <button onclick="goSubmit();" class="btn btn-block btn-flat btn-login">Login</button>
-        </div>
-        <!-- /.social-auth-links -->
-        <div class="login-findpw cl">
-            <p class="pull-left">
-                <a href="/join/agreement.do">지도자/관리자 등록신청</a>
+            <!-- /.social-auth-links -->
+            <div class="login-findpw cl">
+                <p class="pull-left">
+                    <a href="/join/agreement.do">지도자/관리자 등록신청</a>
+                </p>
+                <p class="pull-right">
+                    <a href="#" id="btnModal">아이디/비밀번호 찾기</a>
+                </p>
+            </div>
+            <p class="login-infotel">
+                <span class="glyphicon glyphicon-phone-alt"></span>기술문의
+                <a
+                    href="tel:070-4457-7104">070-4457-7104</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="http://helpu.kr/srmm/" target="_blank">☞원격지원 요청</a>
             </p>
-            <p class="pull-right">
-                <a href="#" id="btnModal">아이디/비밀번호 찾기</a>
-            </p>
         </div>
-        <p class="login-infotel">
-            <span class="glyphicon glyphicon-phone-alt"></span>기술문의
-            <a href="tel:070-4457-7104">070-4457-7104</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="http://helpu.kr/srmm/" target="_blank">☞원격지원 요청</a>
-        </p>
     </div>
-</div>
-<form name="form_chk" method="post">
-    <input type="hidden" name="m" value="checkplusSerivce">
-    <input type="hidden" name="EncodeData" id="EncodeData" value="">
-</form>
+    <form name="form_chk" method="post">
+        <input type="hidden" name="m" value="checkplusSerivce">
+        <input type="hidden" name="EncodeData" id="EncodeData" value="">
+    </form>
 
 
-<!-- The Modal -->
-<div id="findIdPwd" class="modal" style="top: -150px;">
-    <!-- Modal content -->
-    <div class="modal-content" style="width:720px;">
-        <div class="modal-header">
-            <span class="close">&times;</span>
-            <h2>아이디/비밀번호 찾기</h2>
+    <!-- The Modal -->
+    <div id="findIdPwd" class="modal" style="top: -150px;">
+        <!-- Modal content -->
+        <div class="modal-content" style="width:720px;">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>아이디/비밀번호 찾기</h2>
+            </div>
+            <div class="modal-body">
+                <ul class="tab tab_login">
+                    <li class="active">아이디찾기</li>
+                    <li>비밀번호찾기</li>
+                </ul>
+                <div class="tab_content">
+                    <form id="idFrom" method="post">
+                        <input type="hidden" id="mode" name="mode" value="idSearch">
+                        <!-- 아이디찾기 -->
+                        <div class="find_id">
+                            <div class="top">
+                                <p>아이디가 기억나지 않으세요?</p>
+                                <!-- <p>본인 이름과 생년월일, 인사정보에 등록된 휴대폰 또는 이메일 정보를 입력해주세요.</p> -->
+                                <p>본인 이름과 생년월일, 인사정보에 등록된 휴대폰를 입력해주세요.</p>
+                            </div>
+                            <div class="btm">
+                                <div class="input_wrap">
+                                    <!-- <input type="radio" id="r1" name="method" valeu="email"/>
+                                <label for="r1"><span></span>이메일</label> -->
+                                    <input type="radio" id="r2" name="method" value="phone" checked="checked" />
+                                    <label for="r2">
+                                        <span></span>
+                                        휴대폰번호
+                                    </label>
+                                </div>
+                                <div class="input_wrap">
+                                    <input type="radio" id="g1" name="memberGroup" value="050" checked="checked" />
+                                    <label for="g1">
+                                        <span></span>
+                                        지도자
+                                    </label>
+                                    <input type="radio" id="g2" name="memberGroup" value="030" />
+                                    <label for="g2">
+                                        <span></span>
+                                        시도체육회 관리자
+                                    </label>
+                                    <input type="radio" id="g3" name="memberGroup" value="040" />
+                                    <label for="g3">
+                                        <span></span>
+                                        시군구관리자
+                                    </label>
+                                </div>
+                                <table>
+                                    <colgroup>
+                                        <col width="110px">
+                                        <col width="*">
+                                    </colgroup>
+                                    <tr>
+                                        <th>이름</th>
+                                        <td>
+                                            <input type="text" name="memberNm" id="idName" autocomplete="off">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>생년월일</th>
+                                        <td>
+                                            <div class="input_inline">
+                                                <input type="text" class="mid" id="idYear" name="year"
+                                                    onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+                                                년
+                                                <select name="month" id="idMonth" class="min">
+                                                </select>
+                                                월
+                                                <select name="day" id="idDay" class="min">
+                                                </select>
+                                                일
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>핸드폰번호</th>
+                                        <td>
+                                            <div class="input_inline">
+                                                <select id="idCell1" class="mid" name="idCell1">
+                                                    <option value="010">010</option>
+                                                    <option value="011">011</option>
+                                                    <option value="016">016</option>
+                                                    <option value="017">017</option>
+                                                    <option value="018">018</option>
+                                                    <option value="019">019</option>
+                                                </select>
+                                                -
+                                                <input type="text" class="mid" name="idCell2" id="idCell2">
+                                                -
+                                                <input type="text" class="mid" name="idCell3" id="idCell3">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                        </div>
+                        <div class="text-center">
+                            <button type="button" class="btn btn_blue" onclick="searchId();">아이디 찾기</button>
+                            <button type="button" class="btn btn_defaultC">다시입력</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="tab_content">
+                    <form action="" id="pwForm" method="post">
+                        <input type="hidden" name="mode" value="pwSearch">
+                        <!-- 비밀번호찾기 -->
+                        <div class="find_id">
+                            <div class="top">
+                                <p>비밀번호가 기억나지 않으세요?</p>
+                                <!-- <p>본인 아이디, 이름 , 생년월일, 인사정보에 등록된 휴대폰 또는 이메일 정보를 입력하시면 <br>
+                            해당 휴대폰번호 또는 이메일 주소로 인터넷 비밀번호를 전송해 드립니다.</p> -->
+                                <p>본인 아이디, 이름 , 생년월일, 인사정보에 등록된 휴대폰를 입력해주세요.</p>
+                            </div>
+                            <div class="btm">
+                                <div class="input_wrap">
+                                    <input type="radio" id="p1" name="method" checked="checked" />
+                                    <label for="p1">
+                                        <span></span>
+                                        휴대폰번호
+                                    </label>
+                                </div>
+                                <div class="input_wrap">
+                                    <input type="radio" id="p1" name="memberGroup" value="050" checked="checked" />
+                                    <label for="p1">
+                                        <span></span>
+                                        지도자
+                                    </label>
+                                    <input type="radio" id="p2" name="memberGroup" value="030" />
+                                    <label for="p2">
+                                        <span></span>
+                                        시도체육회 관리자
+                                    </label>
+                                    <input type="radio" id="p3" name="memberGroup" value="040" />
+                                    <label for="p3">
+                                        <span></span>
+                                        시군구관리자
+                                    </label>
+                                </div>
+                                <table>
+                                    <colgroup>
+                                        <col width="110px">
+                                        <col width="*">
+                                    </colgroup>
+                                    <tr>
+                                        <th>아이디</th>
+                                        <td>
+                                            <input type="text" name="memberId" id="pwId" autocomplete="off">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>이름</th>
+                                        <td>
+                                            <input type="text" name="memberNm" id="pwNm" autocomplete="off">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>생년월일</th>
+                                        <td>
+                                            <div class="input_inline">
+                                                <input type="text" class="mid" id="pwYear" name="year"
+                                                    onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+                                                년
+                                                <select name="month" id="pwMonth" class="min">
+                                                </select>
+                                                월
+                                                <select name="day" id="pwDay" class="min">
+                                                </select>
+                                                일
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>핸드폰번호</th>
+                                        <td>
+                                            <div class="input_inline">
+                                                <select name="idCell1" id="pwCell1" class="mid">
+                                                    <option value="010">010</option>
+                                                    <option value="011">011</option>
+                                                    <option value="016">016</option>
+                                                    <option value="017">017</option>
+                                                    <option value="018">018</option>
+                                                    <option value="019">019</option>
+                                                </select>
+                                                -
+                                                <input type="text" class="mid" name="idCell2">
+                                                -
+                                                <input type="text" class="mid" name="idCell3">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                        </div>
+                        <div class="text-center">
+                            <button type="button" class="btn btn_blue" onclick="pwFind()">패스워드 찾기</button>
+                            <button type="button" class="btn btn_defaultC">다시입력</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-            <ul class="tab tab_login">
-                <li class="active">아이디찾기</li>
-                <li>비밀번호찾기</li>
-            </ul>
-            <div class="tab_content">
-                <form id="idFrom" method="post">
-                    <input type="hidden" id="mode" name="mode" value="idSearch">
+    </div>
+
+
+    <!-- The Modal -->
+    <div id="changeIdPwd" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content" style="width:720px;">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>아이디/비밀번호 변경</h2>
+            </div>
+            <div class="modal-body">
+                <form id="changeFrm" method="post">
+                    <input type="hidden" name="memberSeq" id="memberSeq" />
                     <!-- 아이디찾기 -->
                     <div class="find_id">
                         <div class="top">
-                            <p>아이디가 기억나지 않으세요?</p>
-                            <!-- <p>본인 이름과 생년월일, 인사정보에 등록된 휴대폰 또는 이메일 정보를 입력해주세요.</p> -->
-                            <p>본인 이름과 생년월일, 인사정보에 등록된 휴대폰를 입력해주세요.</p>
+                            <p>사용하실 아이디와 비밀번호를 입력하세요.</p>
                         </div>
                         <div class="btm">
-                            <div class="input_wrap">
-                                <!-- <input type="radio" id="r1" name="method" valeu="email"/>
-                                <label for="r1"><span></span>이메일</label> -->
-                                <input type="radio" id="r2" name="method" value="phone" checked="checked"/>
-                                <label for="r2">
-                                    <span></span>
-                                    휴대폰번호
-                                </label>
-                            </div>
-                            <div class="input_wrap">
-                                <input type="radio" id="g1" name="memberGroup" value="050" checked="checked"/>
-                                <label for="g1">
-                                    <span></span>
-                                    지도자
-                                </label>
-                                <input type="radio" id="g2" name="memberGroup" value="030"/>
-                                <label for="g2">
-                                    <span></span>
-                                    시도체육회 관리자
-                                </label>
-                                <input type="radio" id="g3" name="memberGroup" value="040"/>
-                                <label for="g3">
-                                    <span></span>
-                                    시군구관리자
-                                </label>
-                            </div>
-                            <table>
-                                <colgroup>
-                                    <col width="110px">
-                                    <col width="*">
-                                </colgroup>
-                                <tr>
-                                    <th>이름</th>
-                                    <td>
-                                        <input type="text" name="memberNm" id="idName" autocomplete="off">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>생년월일</th>
-                                    <td>
-                                        <div class="input_inline">
-                                            <input type="text" class="mid" id="idYear" name="year"
-                                                   onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
-                                            년
-                                            <select name="month" id="idMonth" class="min">
-                                            </select>
-                                            월
-                                            <select name="day" id="idDay" class="min">
-                                            </select>
-                                            일
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>핸드폰번호</th>
-                                    <td>
-                                        <div class="input_inline">
-                                            <select id="idCell1" class="mid" name="idCell1">
-                                                <option value="010">010</option>
-                                                <option value="011">011</option>
-                                                <option value="016">016</option>
-                                                <option value="017">017</option>
-                                                <option value="018">018</option>
-                                                <option value="019">019</option>
-                                            </select>
-                                            -
-                                            <input type="text" class="mid" name="idCell2" id="idCell2">
-                                            -
-                                            <input type="text" class="mid" name="idCell3" id="idCell3">
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-
-                    </div>
-                    <div class="text-center">
-                        <button type="button" class="btn btn_blue" onclick="searchId();">아이디 찾기</button>
-                        <button type="button" class="btn btn_defaultC">다시입력</button>
-                    </div>
-                </form>
-            </div>
-
-            <div class="tab_content">
-                <form action="" id="pwForm" method="post">
-                    <input type="hidden" name="mode" value="pwSearch">
-                    <!-- 비밀번호찾기 -->
-                    <div class="find_id">
-                        <div class="top">
-                            <p>비밀번호가 기억나지 않으세요?</p>
-                            <!-- <p>본인 아이디, 이름 , 생년월일, 인사정보에 등록된 휴대폰 또는 이메일 정보를 입력하시면 <br>
-                            해당 휴대폰번호 또는 이메일 주소로 인터넷 비밀번호를 전송해 드립니다.</p> -->
-                            <p>본인 아이디, 이름 , 생년월일, 인사정보에 등록된 휴대폰를 입력해주세요.</p>
-                        </div>
-                        <div class="btm">
-                            <div class="input_wrap">
-                                <input type="radio" id="p1" name="method" checked="checked"/>
-                                <label for="p1">
-                                    <span></span>
-                                    휴대폰번호
-                                </label>
-                            </div>
-                            <div class="input_wrap">
-                                <input type="radio" id="p1" name="memberGroup" value="050" checked="checked"/>
-                                <label for="p1">
-                                    <span></span>
-                                    지도자
-                                </label>
-                                <input type="radio" id="p2" name="memberGroup" value="030"/>
-                                <label for="p2">
-                                    <span></span>
-                                    시도체육회 관리자
-                                </label>
-                                <input type="radio" id="p3" name="memberGroup" value="040"/>
-                                <label for="p3">
-                                    <span></span>
-                                    시군구관리자
-                                </label>
-                            </div>
                             <table>
                                 <colgroup>
                                     <col width="110px">
@@ -522,48 +606,24 @@
                                 <tr>
                                     <th>아이디</th>
                                     <td>
-                                        <input type="text" name="memberId" id="pwId" autocomplete="off">
+                                        <input type="text" name="changeId" id="changeId">
+                                        ※ 4~12자의 영문과 숫자로만 입력하세요
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>이름</th>
+                                    <th>새비밀번호</th>
                                     <td>
-                                        <input type="text" name="memberNm" id="pwNm" autocomplete="off">
+                                        <input type="password" name="newChangePw" id="newChangePw" maxlength="16" />
+                                        ※ 6~16자의
+                                        영문 대소문자, 숫자, 특수문자를 조합하여 사용하실 수 있습니다.
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>생년월일</th>
+                                    <th>새비밀번호 확인</th>
                                     <td>
-                                        <div class="input_inline">
-                                            <input type="text" class="mid" id="pwYear" name="year"
-                                                   onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
-                                            년
-                                            <select name="month" id="pwMonth" class="min">
-                                            </select>
-                                            월
-                                            <select name="day" id="pwDay" class="min">
-                                            </select>
-                                            일
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>핸드폰번호</th>
-                                    <td>
-                                        <div class="input_inline">
-                                            <select name="idCell1" id="pwCell1" class="mid">
-                                                <option value="010">010</option>
-                                                <option value="011">011</option>
-                                                <option value="016">016</option>
-                                                <option value="017">017</option>
-                                                <option value="018">018</option>
-                                                <option value="019">019</option>
-                                            </select>
-                                            -
-                                            <input type="text" class="mid" name="idCell2">
-                                            -
-                                            <input type="text" class="mid" name="idCell3">
-                                        </div>
+                                        <input type="password" name="newChangePw2" id="newChangePw2" maxlength="16"
+                                            onkeypress='if(event.keyCode == 13) goSubmitChangeFrm();' />
+                                        ※ 비밀번호를 다시 한번 입력해 주세요.
                                     </td>
                                 </tr>
                             </table>
@@ -571,73 +631,108 @@
 
                     </div>
                     <div class="text-center">
-                        <button type="button" class="btn btn_blue" onclick="pwFind()">패스워드 찾기</button>
-                        <button type="button" class="btn btn_defaultC">다시입력</button>
+                        <button type="button" class="btn btn_blue" onclick="goSubmitChangeFrm();">확인</button>
+                        <button type="button" class="btn btn_defaultC" onclick="changeFrmReset();">다시입력</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-</div>
 
-
-<!-- The Modal -->
-<div id="changeIdPwd" class="modal">
-    <!-- Modal content -->
-    <div class="modal-content" style="width:720px;">
-        <div class="modal-header">
-            <span class="close">&times;</span>
-            <h2>아이디/비밀번호 변경</h2>
-        </div>
-        <div class="modal-body">
-            <form id="changeFrm" method="post">
-                <input type="hidden" name="memberSeq" id="memberSeq"/>
-                <!-- 아이디찾기 -->
-                <div class="find_id">
-                    <div class="top">
-                        <p>사용하실 아이디와 비밀번호를 입력하세요.</p>
-                    </div>
-                    <div class="btm">
-                        <table>
-                            <colgroup>
-                                <col width="110px">
-                                <col width="*">
-                            </colgroup>
-                            <tr>
-                                <th>아이디</th>
-                                <td>
-                                    <input type="text" name="changeId" id="changeId">
-                                    ※ 4~12자의 영문과 숫자로만 입력하세요
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>새비밀번호</th>
-                                <td>
-                                    <input type="password" name="newChangePw" id="newChangePw" maxlength="16"/>
-                                    ※ 6~16자의
-                                    영문 대소문자, 숫자, 특수문자를 조합하여 사용하실 수 있습니다.
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>새비밀번호 확인</th>
-                                <td>
-                                    <input type="password" name="newChangePw2" id="newChangePw2" maxlength="16"
-                                           onkeypress='if(event.keyCode == 13) goSubmitChangeFrm();'/>
-                                    ※ 비밀번호를 다시 한번 입력해 주세요.
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-
+    <div id="myModal5" class="modal2 main" style=" width: 100%; padding-top: 0;">
+        <div class="modal-content" id="">
+            <div class="modal-header1">
+                <span class="close" id="infoClose">닫기</span>
+                <h2>안내</h2>
+            </div>
+            <div class="modal-body">
+                <script>
+                    function fn_downfile(uuid) {
+                        location.href = "/community/fileDownload.do?uuid=" + uuid;
+                    }
+                </script>
+                <div class="modal-system">
+                    <img src="/img/info-system.png" alt="">
                 </div>
-                <div class="text-center">
-                    <button type="button" class="btn btn_blue" onclick="goSubmitChangeFrm();">확인</button>
-                    <button type="button" class="btn btn_defaultC" onclick="changeFrmReset();">다시입력</button>
+                <div class="modify220106">
+                    <div>
+                        <div class="left">
+                            <strong>Slims 접속방법</strong>
+                            <div class="detail">
+                                <p>(1)</p>
+                                <p>Slims 사용 중 오류 대부분이 구형 PC(지원 중단된 OS Windows7 사용)나 IE(인터넷 익스플로러) 문제로 구글 크롬을 사용하시면
+                                    해결됩니다.</p>
+                            </div>
+                            <div class="detail">
+                                <p>(2)</p>
+                                <p>온라인 교육은 구글 크롬 사용을 권장합니다.
+                                    (구버전 IE진도 저장 문제, MS 구버전 IE 기술지원 종료됨)</p>
+                            </div>
+                            <div class="detail">
+                                <p>(3)</p>
+                                <p>계약기간 종료 회원은 소속체육회에서 퇴직일을 고려하여 인사관리>재계약 처리해주시면 됩니다.</p>
+                            </div>
+                        </div>
+                        <div class="area-blue clear">
+                            <ol>
+                                <li>
+                                    <div class="area-blue__info">
+                                       <span>오류/기술문의</span>
+                                    </div>
+                                    <div class="area-blue__detail">
+                                        <p>070-4457-7104, 070-4457-7108</p>
+                                        <p class="txt-red">(오류/기타문의 게시판 이용 권장)</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="area-blue__info">
+                                       <span>상담 접수</span>
+                                    </div>
+                                    <div class="area-blue__detail">
+                                        <p>02-408-4584</p>
+                                        
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="area-blue__info">
+                                       <span>이메일</span>
+                                    </div>
+                                    <div class="area-blue__detail">
+                                        <p>slims@srmm.kr</p>
+                                        
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="area-blue__info">
+                                       <span>원격지원</span>
+                                    </div>
+                                    <div class="area-blue__detail">
+                                        <p>http://helpu.kr/srmm/</p>
+                                        
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
                 </div>
-            </form>
+            </div>
+            <div class="modal-footer">
+                <div class="notoday" style="margin-right: 5px;">
+                    <input type="checkbox" id="c5" name="ccc">
+                    <label for="c5" style="cursor: pointer;">
+                        오늘 하루 보지 않기
+                        <button type="button" class="btn-close close2" id="c5">
+                            닫기
+                        </button>
+                    </label>
+                    
+                </div>
+
+                
+
+            </div>
         </div>
     </div>
-</div>
 
 
 </body>
@@ -652,11 +747,53 @@
     //
     $('#btn_modal').click(function (event) {
         $("#findIdPwd").css('display', 'block');
+
     });
     $('.modal-header .close').click(function (event) {
         $("#changeIdPwd").css('display', 'none');
         $("#findIdPwd").css('display', 'none');
+
     });
+
+
+    function viewModal() {
+        var cookies = $.cookie();
+        var keys = Object.keys(cookies);
+        var baseTargetCookieName = 'LayerPopupYn'
+        $('.modal2').show();
+        for (var keyIdx in keys) {
+            var key = keys[keyIdx];
+            if (key.indexOf(baseTargetCookieName) === 0) {
+                var value = cookies[key];
+                var select = key.replace(baseTargetCookieName, '').substr(-1);
+                if (value === 'N') $('#myModal' + select).hide();
+            }
+        }
+    }
+
+    $('.modal-header1 .close').click(function (event) {
+        $("#myModal5").css('display', 'none');
+
+    });
+    $("close, .close2, input[name='ccc']").click(function () {
+        var id = $(this).closest('.modal2').attr('id');
+        var modal = $('#' + id);
+        var cookieId = modal.find('input[name="ccc"]').attr('id');
+        if ($('#' + cookieId).is(':checked')) {
+            var key = 'LayerPopupYn'
+            var num = id.substring(id.length - 1, id.length) * 1;
+            if (num > 1) {
+                key += 'Add' + num;
+            }
+            $.cookie(key, 'N', { expires: 1 });
+        }
+        modal.hide();
+    })
+
+    viewModal();
+
+
+
 </script>
 
 </html>

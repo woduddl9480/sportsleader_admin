@@ -1,4 +1,4 @@
-<html lang="ko" style="height: auto; min-height: 100%;">
+<html lang="en" style="height: auto; min-height: 100%;">
 
 <head>
     <meta charset="UTF-8">
@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="/css/font.css">
     <link rel="stylesheet" href="/css/jquery-ui.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/scss/park.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
@@ -459,7 +460,7 @@
 
         /* The Modal (background) */
         .modal {
-            display: none;
+            /* display: none; */
             /* Hidden by default */
             position: fixed;
             /* Stay in place */
@@ -586,7 +587,7 @@
 
             /* modal controll */
             /* close */
-            $(".close, input[name='ccc']").click(function () {
+            $(".close, .close2, input[name='ccc']").click(function () {
                 var id = $(this).closest('.modal').attr('id');
                 var modal = $('#' + id);
                 var cookieId = modal.find('input[name="ccc"]').attr('id');
@@ -883,125 +884,30 @@
                     </p>
                 </div>
                 <div class="search">
-                    <ul class="tabs tab">
-                        <li class="active">
-                            <span>지도장소검색</span>
+                    <ol class="">
+                        <li>
+                            <h3>공지사항</h3>
+                            <div class="search-info">
+                                <p>생활체육지도자 통합관리시스템<br>
+                                    사용자 매뉴얼 V1.0공개
+                                </p>
+                            </div>
+                            <button type="button" class="search-btn">
+                                바로가기
+                            </button>
                         </li>
                         <li>
-                            <span>지도자 찾기</span>
-                        </li>
-                        <!-- <li><span>통계자료</span></li> -->
-                    </ul>
-
-                    <div class="tab_content">
-                        <div class="form">
-                            <select id="sidoCd" name="sidoCd"
-                                onchange="displaySelectSigungu1('sigunguCd',this.value,null,null);">
-                            </select>
-                            <select id="sigunguCd" name="sigunguCd">
-                                <option>시군구 전체</option>
-                            </select>
-                            <select id="placeDiv" name="placeDiv">
-                            </select>
-                            <p>
-                                <input type="text" id="placeNm" name="placeNm">
-                                <button type="button" onclick="mainSearch('place');">
-                                    <img src="img/icon_search.png" alt="검색">
-                                </button>
-                            </p>
-                        </div>
-                        <div class="map" id="placeMap">지도</div>
-                        <ol id="placeResult">
-                        </ol>
-                    </div>
-
-
-                    <div class="tab_content">
-                        <div class="form">
-                            <select id="sidoCd2" name="sidoCd"
-                                onchange="displaySelectSigungu1('sigunguCd2',this.value,null,null);">
-                            </select>
-                            <select id="sigunguCd2" name="sigunguCd">
-                                <option>시군구 전체</option>
-                            </select>
-                            <select id="leaderDiv2" name="leaderDiv">
-                            </select>
-                            <p>
-                                <input type="text" id="memberNm2" name="memberNm">
-                                <button type="button">
-                                    <img src="img/icon_search.png" alt="검색" onclick="mainSearch('leaderDiv');">
-                                </button>
-                            </p>
-                        </div>
-                        <div class="profile">
-                            <div>
-                                <div>
-                                    <p id="memberNm21">-</p>
-                                    <span id="memberAge21">-</span>
-                                </div>
+                            <h3>공지사항</h3>
+                            <div class="search-info">
+                                <p>생활체육지도자 통합관리시스템<br>
+                                    트래픽 안내
+                                </p>
                             </div>
-                            <ul>
-                                <li id="lastSchool21">-</li>
-                                <li id="sigunguFormalNm21">-</li>
-                                <li id="leaderDivNm21">-</li>
-                                <li>입사 :
-                                    <span id="curSigunguSdt21"></span>
-                                </li>
-                            </ul>
-                        </div>
-                        <ol id="teachers">
-                        </ol>
-                    </div>
-                    <div class="tab_content">
-                        <div class="form" id="teachSearchForm">
-                            <select id="sidoCd3" name="sidoCd"
-                                onchange="displaySelectSigungu1('sigunguCd2',this.value,null,null);">
-                            </select>
-                            <select id="sigunguCd3" name="sigunguCd">
-                                <option>시군구 전체</option>
-                            </select>
-                            <select id="leaderDiv3" name="leaderDiv">
-                                <option valeu="">지도자구분 전체</option>
-                                <option valeu="10">일반지도자</option>
-                                <option valeu="20">어르신지도자</option>
-                                <option valeu="30">유소년지도자</option>
-                            </select>
-                            <p>
-                                <input type="text" id="memberNm3">
-                                <button type="button" onclick="mainSearch('teachSearch');">
-                                    <img src="img/icon_search.png" alt="검색">
-                                </button>
-                            </p>
-                        </div>
-                        <div class="statistics">
-                            <ul>
-                                <li>
-                                    <span>일반지도자</span>
-                                    <div class="progressbar">
-                                        <div style="width: 50%">
-                                            <span>50</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span>어르신 전담</span>
-                                    <div class="progressbar">
-                                        <div style="width: 75%">
-                                            <span>75</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span>유소년 전담</span>
-                                    <div class="progressbar">
-                                        <div style="width: 6%">
-                                            <span>6</span>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                            <button type="button" class="search-btn">
+                                자세히보기
+                            </button>
+                        </li>
+                    </ol>
                 </div>
                 <div class="major_menus">
                     <ul>
@@ -1024,183 +930,19 @@
                 </div>
             </div>
             <div class="column2" style="display: flex;flex-direction: column">
-                <div class="mysite">
-                    <ul class="tabs tab">
-                        <li class="active">
-                            <span>대한체육회</span>
-                        </li>
-                        <li>
-                            <span>나의 강의실</span>
-                        </li>
-                    </ul>
-                    <div class="content tab_content">
-                        <p class="avatar">
-                            <a href="">
-                                <img src="img/icon_avatar.png" alt="아바타">
-                            </a>
-                            <a href="" class="settings"></a>
-                        </p>
-                        <div class="my_msgs">
-                            <div class="welcome_msg">
-                                <span class="username"><strong>김남훈</strong>님</span>
-                                환영합니다.
-                            </div>
-                            <div class="received_msgs">
-                                <span>받은 쪽지</span>
-                                <span style="cursor: pointer;" onclick="location.href='/mypage/paper.do'"><em></em>
-                                    통</span>
-                            </div>
-                        </div>
-                        <p class="buttons">
-                            <a href="/logout.do" class="btn_logout">로그아웃</a>
-                            <a href="/mypage/paperRegFrm.do" class="btn_send_msg">쪽지 전송</a>
-                        </p>
+                <div class="infobox">
+                    <div class="infobox-head">
+                        <h3>오류 및 기술문의 접수 안내</h3>
                     </div>
-                    <div class="myroom tab_content">
+                    <div class="infobox-main">
 
-                        <ul>
-                            <li>
-
-
-                                <a href="/lms/classroom/studying" target="_blank">학습중인 과정</a>
-
-
-
-
-                            </li>
-                            <li>
-
-
-                                <a href="/lms/classroom/regist" target="_blank">대기중인 과정</a>
-
-
-
-
-                            </li>
-                            <li>
-
-
-                                <a href="/lms/classroom/complete" target="_blank">학습완료 과정</a>
-
-
-
-
-                            </li>
-                            <li>
-
-
-                                <a href="/lms/support/notice" target="_blank">공지사항</a>
-
-
-
-
-                            </li>
-                        </ul>
                     </div>
+                    <div class="infobox-main">
 
-                </div>
-
-                <div class="schedule" style="margin-bottom: 50px">
-                    <p class="title">지도일정</p>
-                    <p class="date_calen">
-                        <!-- <button type="button"><img src="img/datearrow.png" alt=""></button> -->
-                        <input id="calDate" class="datepicker hasDatepicker" type="button">
-                        <!-- <button type="button"><img src="img/datearrow1.png" alt=""></button> -->
-                        <input type="hidden" id="datepicker" class="hasDatepicker">
-
-                        <!-- <a href=""><img src="img/icon_calendar.png" alt="달력"></a> -->
-                    </p>
-                    <div class="figures" id="dataSchedule"></div>
-                    <div class="figures2">
-                        <p>
-                            <a href="/record/document/signingDocBox.do"><strong>결재 대기</strong></a>
-                            <span></span>
-                        </p>
-                        <p>
-                            <strong>체육회 공지</strong>
-                            <span></span>
-                        </p>
-                        <p>
-                            <a href="/record/document/signingDocBox.do"><strong>결재 진행</strong></a>
-                            <span></span>
-                        </p>
-                        <p>
-                            <strong>시도 공지</strong>
-                            <span></span>
-                        </p>
                     </div>
                 </div>
-                <div class="latest">
-                    <ul class="tabs tab">
-                        <li class="active">
-                            <span>계획 승인</span>
-                        </li>
-                        <li>
-                            <span>실적 결재</span>
-                        </li>
-                        <!-- <li><span>설문조사</span></li> -->
-
-
-
-
-
-                        <li class="off">
-
-
-
-
-                            <a href="/lms/main?id=developer&amp;memberno=205866" target="_blank">온라인교육</a>
-
-
-
-                        </li>
-
-                        <li style="background: #CCCCCC;">
-                            <a href="/community/index.do?type=11" target="_self">
-                                <span style="color: #00alf2;">
-                                    오류문의
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                    <ol class="content tab_content">
-
-                        <li>
-                            <span>결과가 없습니다.</span>
-                        </li>
-
-
-                    </ol>
-                    <ol class="content tab_content">
-
-                        <li>
-                            <span>결과가 없습니다.</span>
-                        </li>
-
-
-                    </ol>
-                    <ol class="content tab_content full">
-                        <li>
-                            <a href="">자동차 관련조사</a>
-                        </li>
-                        <li>
-                            <a href="">일상생활 관한조사</a>
-                        </li>
-                        <li>
-                            <a href="">만족도 조사</a>
-                        </li>
-                        <li>
-                            <a href="">소비자 관련조사</a>
-                        </li>
-                        <li>
-                            <a href="">일반인 대상조사</a>
-                        </li>
-                    </ol>
-                    <ol class="tab_content">
-
-                    </ol>
+                <div class="infobox">
                 </div>
-
             </div>
         </div>
     </div>
@@ -1210,80 +952,64 @@
 
 
     <div id="myModal4" class="modal main"
-        style="padding-top: 0px; left: 0; top: 40px; z-index: 9998; display: none; width: 100%;">
-        <div class="modal-content" id="modaldrag4"
-            style="width: 600px; margin: 0 auto; min-width: auto; border-color: #12c0d9;">
-            <div class="modal-header1" style="padding: 15px 0; background: #12c0d9;">
+        style="padding-top: 0px; left: 0; z-index: 9998; width: 100%;">
+        <div class="modal-content" id="modaldrag4">
+            <div class="modal-header1">
                 <span class="close" id="close4">닫기</span>
                 <h2>안내</h2>
             </div>
-            <div class="modal-body" style="background: #fffef5;">
-
-
-
+            <div class="modal-body">
                 <script>
                     function fn_downfile(uuid) {
                         location.href = "/community/fileDownload.do?uuid=" + uuid;
                     }
                 </script>
-                <p style="font-size:18px;"> ※ 생활체육지도자 통합관리시스템 사용자 매뉴얼 V1.0 공개
-                    <a href="/community/communityDetail.do?type=5&amp;seq=519" target="_self"><span style="color:red;">
-                            [바로가기]</span></a>
-                </p>
-
-
-
-
-
+                <h2>생활체육지도자 통합관리시스템 트래픽 안내
+                </h2>
                 <div class="modify220106">
                     <div>
                         <div class="left">
                             <strong>오류/기술문의 접수</strong>
+                            <div class="detail">
+                                <p>(1)</p>
+                                <p>동시접속 사용자가 매우 많음(서버 허용치를 계속 초과함,</p>
+                                <p>특히 출근직후나 퇴근 전 시간대에 집중됨-다른 시간대 이용 권장)</p>
+                            </div>
                         </div>
-                        <div class="right">
-                            <p><a href="/community/index.do?type=11" style="color: blue">[기타/오류문의 게시판]</a><em
-                                    class="wh">에 남겨 주시기 바랍니다.</em></p>
-                            <p> 가급적 <span class="color_red">게시판 사용</span>을 권해드립니다.<br>
-                                팝업창과 공지사항을 수시로 확인해 주시기 바랍니다.)</p>
-                        </div>
-                    </div>
-                    <div>
-                        <strong><span class="color_red"> ※ 전화 상담 가능 시간 : 평일(오전 9:30~12:30, 13:30~18:30) ※
-                            </span></strong>
-                    </div>
-                    <div>
                         <div class="left">
-                            <strong>기술문의 전화</strong>
+                            <strong>2) 단계적 해결 방안</strong>
+                            <div class="detail">
+                                <p>(1)</p>
+                                <p>이미지 업로드 시 용량 축소(사용자 PC에서 자동으로 줄여서 업로드하도록 적용 완료)</p>
+                            </div>
+                            <div class="detail">
+                                <p>(2)</p>
+                                <p>서버 성능 개선을 위한 점검 및 홈페이지 경량화 작업 중이라 화면이 평소와 다르게 보일 수 있습니다.(사용에는 문제가 없으니 착오 없으시기 바라며, 속도가 정상화되면 이전 화면으로 복구해 드릴 예정입니다.)
+                                    <a href="">[바로가기]</a>
+                                </p>
+                            </div>
                         </div>
-                        <div class="right">
-                            <p class="sr"><em>유지보수 업체 (주)상록에스</em></p>
-                            <p class="tel"><em>070-4457-7104</em><em>070-4457-7108</em></p>
-                            <p class="mt-15">
-                                <span class="txt">온라인교육 및 기술 상담 문의 접수</span>
-                                <span class="info">02-408-4584</span>
-                            </p>
-                            <p class="mt-4">
-                                <span class="txt">이메일 접수</span>
-                                <span class="info mr-20">slims@srmm.kr</span>
-                                <span class="txt">원격지원</span>
-                                <span class="info"><a href="http://367.co.kr"
-                                        target="_blank">http://367.co.kr</a></span>
-                            </p>
+                        <div class="left">
+                            <div class="detail">
+                                <p class="no-indent">게시판 이용 권장 및 고객응대 근로자 보호 안내
+                                    <a href="">[바로가기]</a>
+                                </p>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
-
-                <p style="font-size:15px;line-height:1.6; margin-top:5px; color: blue; text-align: left;">* 정책, 운영, 관리
-                    상의 문의는 해당 시도/시군구 체육회에 문의하여 주시기 바랍니다.</p>
-
-
             </div>
             <div class="modal-footer">
-                <input type="checkbox" id="c5" name="ccc">
+                <!-- <input type="checkbox" id="c5" name="ccc">
                 <label for="c5">
                     <span></span>
                     오늘 하루 보지 않기
-                </label>
+                </label> -->
+                <button type="button" class="btn-close close2" id="close4">
+                    <span>닫기</span> 
+                </button>
+                
             </div>
         </div>
     </div>
@@ -1367,24 +1093,27 @@ border-image-slice: 1; margin-bottom: 10px;">
 
     <!-- footer -->
     <div id="footer">
-        <div class="inner">
-            <div class="top">
+        <div class="inner inner-footer">
+            <div class="left">
                 <a href="#"><img src="/img/footerlogo.png" alt=""></a>
-                <ul>
+                
+            </div>
+            <div class="middle">
+                <ul class="middle-top">
                     <li><a href="https://www.sports.or.kr/home/010902/0000/main.do" target="_blank">개인정보처리방침</a></li>
-                </ul>
-                <ul>
                     <li>
                         <font color="white"><a href="http://helpu.kr/srmm/" target="_blank">원격지원요청</a></font>
                     </li>
                 </ul>
-            </div>
-            <div class="btm">
-                <ul>
+                <ul class="middle-bottom">
                     <li>기술문의전화 : 070-4457-7104</li>
                     <li>정책 및 행정 문의 : 소속 체육회</li>
                 </ul>
                 <address>Copyright© 2016 Korean Sport Olympic Committee. all rights reserved.</address>
+            </div>
+            <div class="right">
+                <a href="#"><img src="/img/footer-kspo.svg" alt=""></a>
+                <p>국민체육진흥기금 지원 사업입니다.</p>
             </div>
         </div>
     </div>

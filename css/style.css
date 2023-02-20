@@ -510,48 +510,107 @@ input[type="radio"]:checked + label span {
 .modal.main .modal-header1{
   padding: 38px 0;
   text-align: center;
+  padding: 12px 20; 
+  background: #009ff0;
 }
 
 
 .modal.main .modal-content{
-  border: 1px solid #00a1f2;
+  border: 1px solid #009ff0;
+  max-width: 800px;
+  width: 400px; 
+  margin: 0 auto; 
+  min-width: auto; 
+  border-color: #009ff0; 
+  display: block!important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.modal.main .modal-body {
+  background: #fff;
+}
+.modal.main .modal-body h2{
+  padding-bottom: 5px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: #111;
+  text-align: justify;
+  border-bottom: 2px solid #111;
 }
 .modal.main .modal-body p{
   text-align: center;
-  font-size: 18px;
-  line-height: 34px;
-  letter-spacing: -.5px;
+  font-size: 21px;
+  line-height: 1.33;
+  letter-spacing: -1.26px;
+  color: #111;
 }
-.modal.main .modal-body div:nth-of-type(1) p{
+.modal.main .modal-body .modify220106 .left {
+  margin-bottom: 20px;
+}
+.modal.main .modal-body .modify220106 .left:last-child {
+  margin-bottom: 0;
+}
+.modal.main .modal-body .detail p {
+  color: #666;
+  font-size: 15px;
+  font-weight: normal;
+  line-height: 1.6;
+  letter-spacing: -0.9px;
+  text-align: left;
+  padding-left: 20px;
+}
+.modal.main .modal-body .detail p.no-indent {
+  position: unset!important;
+}
+.modal.main .modal-body .detail p:first-child {
+  padding-left: 0;
+  position: absolute;
+}
+.modal.main .modal-body .detail a {
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1.87;
+  letter-spacing: -0.9px;
+  color: #009ff0;
+}
+/* .modal.main .modal-body div:nth-of-type(1) p{
   color: #333333;
   font-weight: 500;
 }
 
 .modal.main .modal-body div:nth-of-type(2) p{
   color: #666666;
-}
+} */
 .modal .modal-body .row{
   margin-bottom: 10px;
 }
 
 .modal .modal-body .modify220106 {margin-top: 20px;}
-.modal .modal-body .modify220106 > div {overflow: hidden; padding: 18px; margin-top: 2px; background: #f6f6f6; border: 1px solid #eee; border-radius: 3px;}
+.modal .modal-body .modify220106 > div {overflow: hidden;}
 .modal .modal-body .modify220106 > div:first-of-type {margin-top: 0;}
 .modal .modal-body .modify220106 > div .left {float: left;}
-.modal .modal-body .modify220106 > div .left strong {line-height: 24px; font-family: 'NanumSquare', sans-serif; font-weight: 700; font-size: 16px; color: #222; letter-spacing: -0.6px;}
+.modal .modal-body .modify220106 > div .left strong {line-height: 1.65; font-weight: 700; font-size: 17px; color: #111; letter-spacing: -0.6px;}
 .modal .modal-body .modify220106 > div .right {float: left; margin-left: 40px;}
-.modal .modal-body .modify220106 > div .right p {line-height: 24px; font-family: 'Nanum Gothic', sans-serif; font-size: 14px; color: #666; letter-spacing: -0.6px; text-align: left;}
-.modal .modal-body .modify220106 > div .right p a {font-family: 'Nanum Gothic', sans-serif; font-weight: 700; color: #ff1921;}
-.modal .modal-body .modify220106 > div .right p em.wh {font-family: 'Nanum Gothic', sans-serif; font-weight: 700; color: #222;}
-.modal .modal-body .modify220106 > div .right p.sr em {display: block; margin-bottom: 5px; font-family: 'Nanum Gothic', sans-serif; font-weight: 700; font-size: 13px; color: #444;}
-.modal .modal-body .modify220106 > div .right p.tel em {position: relative; padding-left: 24px; margin-left: 20px; font-family: 'Nanum Gothic', sans-serif; font-weight: 700; font-size: 20px; color: #222;}
+.modal .modal-body .modify220106 > div .right p {line-height: 24px;  font-size: 14px; color: #666; letter-spacing: -0.6px; text-align: left;}
+.modal .modal-body .modify220106 > div .right p a { font-weight: 700; color: #ff1921;}
+.modal .modal-body .modify220106 > div .right p em.wh { font-weight: 700; color: #222;}
+.modal .modal-body .modify220106 > div .right p.sr em {display: block; margin-bottom: 5px;  font-weight: 700; font-size: 13px; color: #444;}
+.modal .modal-body .modify220106 > div .right p.tel em {position: relative; padding-left: 24px; margin-left: 20px;  font-weight: 700; font-size: 20px; color: #222;}
 .modal .modal-body .modify220106 > div .right p.tel em:first-of-type {margin-left: 0;}
 .modal .modal-body .modify220106 > div .right p.tel em::before {content: ''; position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 19px; height: 19px; background: url(../img/tel.png);}
-.modal .modal-body .modify220106 > div .right p span {font-family: 'Nanum Gothic', sans-serif; font-weight: 700;}
-.modal .modal-body .modify220106 > div .right .txt {display: inline-block; height: 24px; line-height: 24px; padding:0 4px; margin-right: 8px; background: #eee; border: 1px solid #ccc; border-radius: 4px; font-family: 'Nanum Gothic', sans-serif; font-weight: 700; font-size: 13px; color: #666; vertical-align: middle;}
-.modal .modal-body .modify220106 > div .right .info {display: inline-block; font-family: 'Nanum Gothic', sans-serif; font-weight: 700; font-size: 14px; color: #222; vertical-align: middle;}
-.modal .modal-body .modify220106 > div .right .info a {font-family: 'Nanum Gothic', sans-serif; font-weight: 700; font-size: 14px; color: #222;}
+.modal .modal-body .modify220106 > div .right p span { font-weight: 700;}
+.modal .modal-body .modify220106 > div .right .txt {display: inline-block; height: 24px; line-height: 24px; padding:0 4px; margin-right: 8px; background: #eee; border: 1px solid #ccc; border-radius: 4px;  font-weight: 700; font-size: 13px; color: #666; vertical-align: middle;}
+.modal .modal-body .modify220106 > div .right .info {display: inline-block;  font-weight: 700; font-size: 14px; color: #222; vertical-align: middle;}
+.modal .modal-body .modify220106 > div .right .info a { font-weight: 700; font-size: 14px; color: #222;}
 .color_red {color: #ff1921 !important;}
+
+
+.color_red {color: #ff1921 !important;}
+
 
 .mt-4 {margin-top: 4px !important;}
 .mt-15 {margin-top: 15px !important;}
@@ -728,10 +787,12 @@ input[type="radio"]:checked + label span {
   padding-top: 106px;
 }
 #content.main .column1{
-  float: left;
+  /* float: left; */
+  margin-right: 28px;
 }
 #content.main .column2{
-  float: right;
+  /* float: right; */
+  position: relative;
 }
 #content.main .column1 :last-child{
   margin-bottom: 0;
@@ -746,9 +807,9 @@ input[type="radio"]:checked + label span {
   display: block;
   clear: both;
 }
-#content.main>.inner>div>div{
+/* #content.main>.inner>div>div{
   margin-bottom: 30px;
-}
+} */
 #content.main .welcome{
   width: 925px;
   height: 310px;
@@ -765,10 +826,9 @@ input[type="radio"]:checked + label span {
   line-height: 111px;
 }
 #content.main .search{
-  padding: 30px 45px 30px 0;
+  padding: 0;
   border-radius: 2px;
   background: #fff;
-  height: 362px;
 }
 #content.main .search .tabs{
   float: left;
@@ -1080,33 +1140,38 @@ input[type="radio"]:checked + label span {
   margin-right: 0;
 }
 #content.main .major_menus ul li:nth-child(1){
-  background: #009ff0 url('../img/icon_tournament_events.png') 35px center no-repeat;
+  background: #009ff0 url('../img/icon_tournament_events.svg') 55px center no-repeat;
+  background-size: inherit;
 }
 #content.main .major_menus ul li:nth-child(2){
-  background: #009ff0 url('../img/icon_club_reg.png') 35px center no-repeat;
+  background: #009ff0 url('../img/icon_club_reg.svg') 55px center no-repeat;
+  background-size: inherit;
 }
 #content.main .major_menus ul li:nth-child(3){
-  background: #009ff0 url('../img/icon_pds.png') 35px center no-repeat;
+  background: #009ff0 url('../img/icon_pds.svg') 55px center no-repeat;
+  background-size: inherit;
 }
 #content.main .major_menus ul li:nth-child(4){
-  background: #009ff0 url('../img/icon_freebbs.png') 35px center no-repeat;
+  background: #009ff0 url('../img/icon_freebbs.svg') 55px center no-repeat;
+  background-size: inherit;
 }
 #content.main .major_menus a{
   display: block;
   width: 100%;
-  
-  padding-left: 25px;
+  padding-left: 30px;
   color: #fff;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 76px;
-  font-size: 20px;
+  font-size: 21px;
+  text-align: center;
 }
 #content.main .mysite{
+  margin-bottom: 30px;
   font-size: 0;
   background: transparent;
   border-radius: 2px;
   width: 448px;
-  height: 153px;
+  /* height: 153px; */
 }
 #content.main .mysite ul{
   font-size: 0;
@@ -1513,6 +1578,86 @@ input[type="radio"]:checked + label span {
 .inner{
   width: 1400px;
   margin: 0 auto;
+  display: flex;
+}
+.inner.cl{
+  align-items: center;
+}
+.inner.inner-footer {
+  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+.inner.inner-footer .left a{
+  display: inline-block;
+  width: 168px;
+  height: 48px;
+}
+.inner.inner-footer .left a img{
+  width: 100%;
+}
+.inner.inner-footer .middle {
+  width: 60%;
+}
+.inner.inner-footer .middle ul {
+  display: flex;
+}
+.inner.inner-footer .middle .middle-top {
+  margin-bottom: 20px;
+}
+.inner.inner-footer .middle .middle-top li {
+  margin-right: 20px;
+}
+.inner.inner-footer .middle .middle-top li a{
+  color: #ccc;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -1.02px;
+  text-align: left;
+}
+
+.inner.inner-footer .middle .middle-bottom {
+  display: flex;
+}
+.inner.inner-footer .middle .middle-bottom li{
+  font-size: 15px;
+font-weight: normal;
+line-height: 1.73;
+letter-spacing: -0.6px;
+text-align: left;
+color: #aaa;
+}
+.inner.inner-footer .middle .middle-bottom li::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 15px;
+  margin: 0 10px -1px;
+  background-color: #666;
+}
+.inner.inner-footer .middle .middle-bottom li:last-child::after {
+  display: none;
+}
+.inner.inner-footer .middle address {
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 2;
+  letter-spacing: -0.26px;
+  text-align: left;
+  color: #aaa;
+}
+.inner.inner-footer .right {
+  text-align: end;
+}
+.inner.inner-footer .right p {
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 2;
+  letter-spacing: -0.78px;
+  text-align: left;
+  color: #aaa;
+  margin-top: 12px;
 }
 #content>.banner{
   background-color: #ccc;
@@ -2162,7 +2307,7 @@ input[type="radio"]:checked + label span {
 
 /* The Modal (background) */
 .modal {
-  display: none; /* Hidden by default */
+  display: block; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 101; /* Sit on top */
   padding-top: 100px; /* Location of the box */
@@ -2214,6 +2359,10 @@ input[type="radio"]:checked + label span {
   background: url(../img/ico_modalclose.png) 0 0 no-repeat;
   cursor: pointer;
 }
+.close2 {
+  display: block;
+  cursor: pointer;
+}
 .modal-header {
   padding:16px 30px;
   background-color: #00a1f2;
@@ -2235,18 +2384,35 @@ input[type="radio"]:checked + label span {
   font-size: 18px;
   letter-spacing: -1px;
   font-weight:400;
+  text-align: left;
 }
 
-.modal-body {padding: 30px 10px; max-height: 900px; overflow-y: scroll;}
+.modal-body {
+  padding: 20px 18px; 
+  /* overflow-y: scroll; */
+}
 
 .modal-footer {
-  padding: 11px 30px;
-  border-top: 1px solid #dddddd;
+  padding: 5px 20px;
+  background-color: #eee;
   line-height: normal;
+  display: flex;
+  justify-content: end;
+}
+.modal-footer .btn-close {
+  width: 68px;
+  height: 40px;
+  padding: 10px 5px 9px;
+  border-radius: 2px;
+  border: solid 1px #aaa;
+  background-color: #f2f2f2;
+  font-size: 15px;
+  font-weight: 500;
 }
 .modal-footer label{
   font-weight: normal;
   margin-bottom:0;
+  
 }
 .srch_location{
   border-top: 3px solid #dddddd;
