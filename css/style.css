@@ -796,6 +796,7 @@ input[type="radio"]:checked + label span {
 }
 #content.main .column1 :last-child{
   margin-bottom: 0;
+  margin-top: 20px;
 }
 #content.main .column2 :last-child{
   margin-bottom: 0;
@@ -812,8 +813,7 @@ input[type="radio"]:checked + label span {
 } */
 #content.main .welcome{
   width: 925px;
-  height: 310px;
-  padding: 86px 0 69px;
+  padding: 86px 0 0px;
 }
 #content.main .welcome .subline{
   display: block;
