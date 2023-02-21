@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        opacity: 0.24;
+      }
+    </style>
+  </defs>
+  <path id="패스_32" data-name="패스 32" class="cls-1" d="M12,0,9.878,2.122,18.255,10.5H0v3H18.255L9.878,21.877,12,24,24,12Z" transform="translate(0 0)"/>
+</svg>
